@@ -5,6 +5,7 @@
    * @constructor
    * @param {string} image
    */
+   
   var Resizer = function(image) {
     // Изображение, с которым будет вестись работа.
     this._image = new Image();
@@ -89,14 +90,14 @@
       // чего-либо с другой обводкой.
 
       // Толщина линии.
-      this._ctx.lineWidth = 6;
+      this._ctx.lineWidth = 2;
       // Цвет обводки.
       this._ctx.strokeStyle = '#ffe753';
       // Размер штрихов. Первый элемент массива задает длину штриха, второй
       // расстояние между соседними штрихами.
-      this._ctx.setLineDash([15, 10]);
+      this._ctx.setLineDash([2, 2]);
       // Смещение первого штриха от начала линии.
-      this._ctx.lineDashOffset = 7;
+      this._ctx.lineDashOffset = 2;
 
       // Сохранение состояния канваса.
       // Подробней см. строку 132.
@@ -111,6 +112,43 @@
       // нужно отрисовать и координаты его верхнего левого угла.
       // Координаты задаются от центра холста.
       this._ctx.drawImage(this._image, displX, displY);
+
+      // Отрисовка черной рамки с 80% прозрачности.
+      // Рамка состоит из четырех прямоугольников, уходящих за пределы рамки.
+      this._ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+      
+      // Левый прямоугольник.
+      this._ctx.fillRect(
+          -this._resizeConstraint.side * 2,
+          -this._resizeConstraint.side * 2,
+          (this._resizeConstraint.side * 1.5) - this._ctx.lineWidth,
+          this._resizeConstraint.side * 3);
+      // Правый прямоугольник.
+      this._ctx.fillRect(
+          (this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2,
+          -this._resizeConstraint.side * 2,
+          this._resizeConstraint.side * 1.5,
+          this._resizeConstraint.side * 3);
+      // Верхний прямоугольник.
+      this._ctx.fillRect(
+          (-this._resizeConstraint.side / 2) - this._ctx.lineWidth,
+          (-this._resizeConstraint.side * 2) - this._ctx.lineWidth / 2,
+          this._resizeConstraint.side + this._ctx.lineWidth / 2,
+          this._resizeConstraint.side * 1.5);
+      // Нижний прямоугольник.
+      this._ctx.fillRect(
+          (-this._resizeConstraint.side / 2) - this._ctx.lineWidth,
+          this._resizeConstraint.side / 2,
+          this._resizeConstraint.side + this._ctx.lineWidth / 2,
+          this._resizeConstraint.side * 1.5);
+      
+      // Отрисовка чисел, которые обозначают размеры кадрируемой области.
+      this._ctx.font = ('20px Tahoma');
+      this._ctx.fillStyle = '#fff';
+      this._ctx.fillText(
+        this._image.naturalWidth + ' x ' + this._image.naturalHeight,
+        (-this._resizeConstraint.side * 0.2),
+        (-this._resizeConstraint.side / 2) - 20);
 
       // Отрисовка прямоугольника, обозначающего область изображения после
       // кадрирования. Координаты задаются от центра.
