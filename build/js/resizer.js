@@ -5,7 +5,6 @@
    * @constructor
    * @param {string} image
    */
-   
   var Resizer = function(image) {
     // Изображение, с которым будет вестись работа.
     this._image = new Image();
