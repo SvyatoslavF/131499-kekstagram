@@ -115,7 +115,6 @@
       // Отрисовка черной рамки с 80% прозрачности.
       // Рамка состоит из четырех прямоугольников, уходящих за пределы рамки.
       this._ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
-      
       // Левый прямоугольник.
       this._ctx.fillRect(
           -this._resizeConstraint.side * 2,
@@ -140,7 +139,6 @@
           this._resizeConstraint.side / 2,
           this._resizeConstraint.side + this._ctx.lineWidth / 2,
           this._resizeConstraint.side * 1.5);
-      
       // Отрисовка чисел, которые обозначают размеры кадрируемой области.
       this._ctx.font = ('20px Tahoma');
       this._ctx.fillStyle = '#fff';
@@ -148,7 +146,6 @@
         this._image.naturalWidth + ' x ' + this._image.naturalHeight,
         (-this._resizeConstraint.side * 0.2),
         (-this._resizeConstraint.side / 2) - 20);
-
       // Отрисовка прямоугольника, обозначающего область изображения после
       // кадрирования. Координаты задаются от центра.
       this._ctx.strokeRect(
