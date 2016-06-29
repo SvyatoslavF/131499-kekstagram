@@ -146,7 +146,10 @@
         this._image.naturalWidth + ' x ' + this._image.naturalHeight,
         (-this._resizeConstraint.side * 0.2),
         (-this._resizeConstraint.side / 2) - 20);
+<<<<<<< HEAD:src/resizer.js
 
+=======
+>>>>>>> htmlacademy-javascript/master:build/js/resizer.js
       // Отрисовка прямоугольника, обозначающего область изображения после
       // кадрирования. Координаты задаются от центра.
       this._ctx.strokeRect(
