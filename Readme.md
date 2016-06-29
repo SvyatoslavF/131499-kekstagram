@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм» [![Build status][travis-image]][travis-url] [![Dependency status][dependency-image]][dependency-url]
 
 * Студент: [Свят Шалений](https://up.htmlacademy.ru/javascript/5/user/131499).
-* Наставник: `Неизвестно`.
+* Наставник: [Виталий Ртищев])(https://htmlacademy.ru/profile/id87261).
 
 ---
 
