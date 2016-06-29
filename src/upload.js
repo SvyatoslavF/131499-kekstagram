@@ -67,38 +67,6 @@
     backgroundElement.style.backgroundImage = 'url(' + images[randomImageNumber] + ')';
   }
 
-  var WIDTH_IMAGE = currentResizer._image.naturalWidth;
-  var HEIGHT_IMAGE = currentResizer._image.naturalHeight;
-  var leftPoint = document.querySwlwctor('#resize-x');
-  var topPoint = document.querySwlwctor('#resize-y');
-  var sideSize = document.querySwlwctor('#resize-size');
-
-  leftPoint.min = 0;
-  topPoint.min = 0;
-  sideSize.min = 1;
-
-  var maxPointPosition = function(leftPosition, topPosition, sidePosition) {
-    leftPosition.max = Math.ceil(WIDTH_IMAGE - sidePosition);
-    topPosition.max = Math.ceil(HEIGHT_IMAGE - sidePosition);
-    sidePosition.max = ((WIDTH_IMAGE - leftPosition) >= (HEIGHT_IMAGE - topPosition)) ? (HEIGHT_IMAGE - topPosition) : (WIDTH_IMAGE - leftPosition);
-  };
-
-  leftPoint.value = 0;
-  topPoint.value = 0;
-
-  leftPoint.onchange = function() {
-    maxPointPosition(leftPoint.value, topPoint.value, sideSize);
-  };
-
-  topPoint.onchange = function() {
-    maxPointPosition(leftPoint.value, topPoint.value, sideSize);
-  };
-
-  sideSize.onchange = function() {
-    maxPointPosition(leftPoint.value, topPoint.value, sideSize);
-  };
-
-  maxPointPosition(leftPoint.value, topPoint.value, sideSize);
   /**
    * Проверяет, валидны ли данные, в форме кадрирования.
    * @return {boolean}
