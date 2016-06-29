@@ -5,6 +5,7 @@
    * @constructor
    * @param {string} image
    */
+   
   var Resizer = function(image) {
     // Изображение, с которым будет вестись работа.
     this._image = new Image();
@@ -115,6 +116,7 @@
       // Отрисовка черной рамки с 80% прозрачности.
       // Рамка состоит из четырех прямоугольников, уходящих за пределы рамки.
       this._ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+      
       // Левый прямоугольник.
       this._ctx.fillRect(
           -this._resizeConstraint.side * 2,
@@ -139,6 +141,7 @@
           this._resizeConstraint.side / 2,
           this._resizeConstraint.side + this._ctx.lineWidth / 2,
           this._resizeConstraint.side * 1.5);
+      
       // Отрисовка чисел, которые обозначают размеры кадрируемой области.
       this._ctx.font = ('20px Tahoma');
       this._ctx.fillStyle = '#fff';
